@@ -1,0 +1,930 @@
+﻿<!DOCTYPE html>
+<html class="light scroll-smooth" lang="uk">
+<head>
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STUDIO 19 | Професійна Фотостудія в Харкові</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#1b1b1b",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-container-low": "#f3f3f4",
+                        "on-tertiary-fixed": "#1b1b1b",
+                        "surface-container": "#eeeeee",
+                        "grey-muted": "#666666",
+                        "primary": "#000000",
+                        "primary-fixed": "#e2e2e2",
+                        "on-primary-fixed-variant": "#474747",
+                        "secondary": "#5d5f5f",
+                        "surface-dim": "#dadada",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "tertiary": "#000000",
+                        "stark-black": "#000000",
+                        "on-secondary-fixed-variant": "#454747",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "background": "#f9f9f9",
+                        "secondary-container": "#dfe0e0",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1c",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-surface-variant": "#4c4546",
+                        "inverse-primary": "#c6c6c6",
+                        "on-secondary-container": "#616363",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-container": "#848484",
+                        "on-primary-fixed": "#1b1b1b",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#848484",
+                        "surface-container-highest": "#e2e2e2",
+                        "tertiary-container": "#1b1b1b",
+                        "surface": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "crisp-white": "#FFFFFF",
+                        "surface-tint": "#5e5e5e",
+                        "inverse-surface": "#2f3131",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "grey-border": "#E5E5E5",
+                        "surface-variant": "#e2e2e2",
+                        "outline-variant": "#cfc4c5",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "outline": "#7e7576",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "8px",
+                        "margin-mobile": "24px",
+                        "section-gap": "160px",
+                        "margin-desktop": "80px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Helvetica"],
+                        "body-lg": ["Helvetica"],
+                        "display-xl": ["Helvetica"],
+                        "headline-md": ["Helvetica"],
+                        "headline-lg": ["Helvetica"],
+                        "body-md": ["Helvetica"],
+                        "label-caps": ["Helvetica"],
+                        "label-sm": ["Helvetica"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["40px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "display-xl": ["120px", {"lineHeight": "110px", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "headline-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Marquee Animation */
+        .scrolling-text {
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: scroll 30s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Entrance Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeInUp 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Soft Reveal Utility for Intersection Observer */
+        .reveal-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1), transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        .reveal-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Nav Link Underlines */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Accordion transition */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 500px;
+            transition: max-height 0.5s cubic-bezier(1, 0, 1, 0);
+        }
+        .accordion-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+        .icon-plus {
+            transition: transform 0.3s ease;
+        }
+
+        /* Custom scrollbar for editorial feel */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f9f9f9; }
+        ::-webkit-scrollbar-thumb { background: #000; }
+    .marquee-container { overflow: hidden; white-space: nowrap; position: relative; } .marquee-content { display: inline-block; animation: marquee 20s linear infinite; } @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } } </style>
+
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+    <!-- MOBILE VERSION -->
+    <div class="md:hidden">
+
+<!-- Mobile Navigation Shell -->
+<header class="fixed top-0 left-0 w-full z-50 bg-crisp-white border-b border-stark-black px-margin-mobile py-4 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="font-label-caps text-[10px] tracking-widest uppercase">PHOTOGRAPHER</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter uppercase leading-none">STUDIO 19</span>
+</div>
+<button class="p-2" id="menu-toggle">
+<span class="material-symbols-outlined text-stark-black">menu</span>
+</button>
+</header>
+<!-- Overlay Menu -->
+<div class="fixed inset-0 z-[60] bg-crisp-white translate-x-full transition-transform duration-500 flex flex-col p-12" id="mobile-menu">
+<div class="flex justify-end">
+<button class="p-2" id="menu-close">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-8 mt-12">
+<a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-portfolio">ПОРТФОЛІО</a>
+<a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-equipment">ОБЛАДНАННЯ</a>
+<a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-rules">ПРАВИЛА</a>
+<a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-contacts">КОНТАКТИ</a>
+<a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-booking">БРОНЮВАННЯ</a>
+</nav>
+<div class="mt-auto border-t border-stark-black pt-8">
+<p class="font-label-caps text-label-caps text-grey-muted">СУМСЬКА 1, ХАРКІВ</p>
+<p class="font-label-caps text-label-caps text-grey-muted mt-2">© 2024 STUDIO 19</p>
+</div>
+</div>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="px-margin-mobile mb-12 reveal-on-scroll" id="m-hero">
+<div class="reveal-on-scroll stagger-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-tighter mb-4">ЕСТЕТИКА КАДРУ</h1>
+<div class="h-[1px] bg-stark-black w-full mb-8"></div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="relative aspect-[3/4] overflow-hidden reveal-on-scroll stagger-2">
+<img alt="Interior" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ujlCz4aLl6EVBBG7U6gIoIakw5u4XdCo0AJ748VkZVNXJm8AnjODLups3rkW7oeHi8xyAJw60Wv4DfmZAwKI-7Lc9EVpoNlG49joanRi2SSsrnQTIL5PfIQZw3H90ux8pOYEOI_n_3lw4s_4m-4a7ciCJRtR-2Smw8lJiENynOgPacx1OHmjH2vBWJjy3uwm_I91iqT73xI7F8Je61uPjYFG8mKbmpiBUqM3dAQHSZ4FdGjACb-V3bi9oej"/>
+<div class="absolute bottom-4 left-4 bg-crisp-white px-3 py-1 border border-stark-black">
+<span class="font-label-caps text-label-caps">HALL 01 / VINTAGE</span>
+</div>
+</div>
+<div class="reveal-on-scroll stagger-3">
+<p class="font-body-lg text-body-lg leading-relaxed mb-6">Простір, де мінімалізм зустрічається з експресією. Найкраща студія Харкова для fashion-зйомок та арт-проектів.</p>
+<a class="inline-block bg-stark-black text-crisp-white px-8 py-4 font-label-caps text-label-caps text-center w-full active:scale-95 transition-transform" href="#m-booking">ЗАБРОНЮВАТИ ЗАРАЗ</a>
+</div>
+</div>
+</section>
+<!-- Brand Marquee -->
+<div class="marquee-container border-y border-stark-black py-4 bg-stark-black text-crisp-white mb-20 reveal-on-scroll">
+<div class="marquee-content flex gap-12 items-center">
+<span class="font-label-caps text-label-caps">STUDIO 19</span><span class="material-symbols-outlined text-xs">fiber_manual_record</span>
+<span class="font-label-caps text-label-caps">STUDIO 19</span><span class="material-symbols-outlined text-xs">fiber_manual_record</span>
+<span class="font-label-caps text-label-caps">STUDIO 19</span><span class="material-symbols-outlined text-xs">fiber_manual_record</span>
+<span class="font-label-caps text-label-caps">STUDIO 19</span><span class="material-symbols-outlined text-xs">fiber_manual_record</span>
+<span class="font-label-caps text-label-caps">STUDIO 19</span><span class="material-symbols-outlined text-xs">fiber_manual_record</span>
+<span class="font-label-caps text-label-caps">STUDIO 19</span><span class="material-symbols-outlined text-xs">fiber_manual_record</span>
+<span class="font-label-caps text-label-caps">STUDIO 19</span><span class="material-symbols-outlined text-xs">fiber_manual_record</span>
+<span class="font-label-caps text-label-caps">STUDIO 19</span>
+</div>
+</div>
+<!-- Portfolio -->
+<section class="px-margin-mobile mb-section-gap reveal-on-scroll" id="m-portfolio">
+<h2 class="font-label-caps text-label-caps text-grey-muted mb-4">ПОРТФОЛІО</h2>
+<div class="grid grid-cols-1 gap-2 border-l border-stark-black pl-4">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase mb-8">ОСТАННІ РОБОТИ</h3>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<div class="aspect-square bg-surface-container reveal-on-scroll stagger-1">
+<img alt="Studio Detail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAC3_WWFOLtmK2hnFwDcWcSly-RjKakeJar2vtpYkFKGgpzvlEfrNmaSg5cO4Xdpgp1XYo556WY3PZaTn3_mwD9ilcU0QxKMoICQ7HL21qJoqYWjQkC1nfWj6MU4zy6rdMvwaFQ1y3-HOt_2yPPn4IXt_k_Gh8VmYX7z8FOdD0BdhuyoHWbhRPC3zTMwClCsPueAxq6FEr43hGt6I4KF4k3FsEYzXRAd-rsqLdOyD3CalMPswjTEdxV23oJ6P3P_24RdgXSfPoDNTH"/>
+</div>
+<div class="flex flex-col justify-end p-4 border border-stark-black reveal-on-scroll stagger-2">
+<span class="font-label-caps text-[10px] uppercase">PHOTOGRAPHY</span>
+<p class="font-body-md text-sm italic mt-1">STUDIO 19</p>
+</div>
+<div class="col-span-2 aspect-[4/5] bg-surface-container reveal-on-scroll stagger-1">
+<img alt="Studio Main" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsyeEt9tom2bG5TfhrMeozAcg2oW3rb_IbijPbbBqesJR5HYxdM0jFEyx1uR5MLweGsMotV_mUYbrdOsuUz1ZCXPtiy6IrhuHuS5gd5cNy6fmAqP0XldgknplMIq4HnZi7syK07nu_xlXDaMi59xsWACLSNrrrapaI6-XgfEAUMCpV0ycWrPFMSGc20cZPTw91gZs5ESk4LatvU5BtWcITOE8QP-gN1YZBSusWx5EdN6LxklM70V-E9-5syF0KSnaG5cv0Ir6Q4kFZ"/>
+</div>
+<div class="col-span-2 aspect-[3/4] bg-surface-container mt-2 reveal-on-scroll stagger-1">
+<img alt="Studio Model" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaYMSEtwbi8jNrubNVxgImVzsiAMnXbTUaE529U8U-V8Srrtj_ymg1Ui00A80K4Soi6v7YzFZq4yElpSV5bI4PsTCX8VOXVYgAwMCod-zM5sh1frBriC8IIXPqfjVUYOBpdByyiJpIc38HKqK8jWEXRSnwqsDF47a_xAY1a9oVwCsjszUEJFtFIQIw9iSaYmlQOMoZBL-O9NuYPYRMZgU1TirvifOfBbTLAkQglC5bQgCv1dcBAhPHrVo-jZw2SF0Xnv0TJkN17ui6"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Equipment -->
+<section class="bg-stark-black text-crisp-white py-20 px-margin-mobile mb-section-gap reveal-on-scroll" id="m-equipment">
+<h2 class="font-label-caps text-label-caps text-secondary-fixed-dim mb-12">ТЕХНІЧНЕ ОБЛАДНАННЯ</h2>
+<div class="flex flex-col gap-0 border-t border-secondary-fixed-dim/30">
+<div class="py-6 border-b border-secondary-fixed-dim/30 flex justify-between items-center reveal-on-scroll stagger-1">
+<span class="font-headline-md text-[24px] uppercase tracking-tighter">Profoto D2 1000 AirTTL</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim">flash_on</span>
+</div>
+<div class="py-6 border-b border-secondary-fixed-dim/30 flex justify-between items-center reveal-on-scroll stagger-2">
+<span class="font-headline-md text-[24px] uppercase tracking-tighter">Broncolor Para 133</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim">wb_sunny</span>
+</div>
+<div class="py-6 border-b border-secondary-fixed-dim/30 flex justify-between items-center reveal-on-scroll stagger-3">
+<span class="font-headline-md text-[24px] uppercase tracking-tighter">Hasselblad H6D-100c</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim">photo_camera</span>
+</div>
+<div class="py-6 border-b border-secondary-fixed-dim/30 flex justify-between items-center reveal-on-scroll stagger-3">
+<span class="font-headline-md text-[24px] uppercase tracking-tighter">Manfrotto Mega Boom</span>
+<span class="material-symbols-outlined text-secondary-fixed-dim">vertical_align_top</span>
+</div>
+</div>
+</section>
+<!-- Rules -->
+<section class="px-margin-mobile mb-section-gap reveal-on-scroll" id="m-rules">
+<h2 class="font-label-caps text-label-caps text-grey-muted mb-8 text-center underline underline-offset-8">ПРАВИЛА СТУДІЇ</h2>
+<div class="flex flex-col gap-4">
+<div class="border border-stark-black p-6 transition-colors reveal-on-scroll stagger-1" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center cursor-pointer">
+<span class="font-label-caps text-label-caps">01. БРОНЮВАННЯ</span>
+<span class="material-symbols-outlined transform transition-transform">add</span>
+</div>
+<div class="max-h-0 overflow-hidden transition-all duration-300 content">
+<p class="pt-6 font-body-md text-sm text-grey-muted">Мінімальний час оренди — 2 години. Передоплата 50% від вартості замовлення.</p>
+</div>
+</div>
+<div class="border border-stark-black p-6 transition-colors reveal-on-scroll stagger-2" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center cursor-pointer">
+<span class="font-label-caps text-label-caps">02. ЧИСТОТА ТА ВЗУТТЯ</span>
+<span class="material-symbols-outlined transform transition-transform">add</span>
+</div>
+<div class="max-h-0 overflow-hidden transition-all duration-300 content">
+<p class="pt-6 font-body-md text-sm text-grey-muted">Вхід у зали тільки у чистому змінному взутті або капцях студії. За підошву клеїться малярний скотч.</p>
+</div>
+</div>
+<div class="border border-stark-black p-6 transition-colors reveal-on-scroll stagger-3" onclick="toggleAccordion(this)">
+<div class="flex justify-between items-center cursor-pointer">
+<span class="font-label-caps text-label-caps">03. КІЛЬКІСТЬ ОСІБ</span>
+<span class="material-symbols-outlined transform transition-transform">add</span>
+</div>
+<div class="max-h-0 overflow-hidden transition-all duration-300 content">
+<p class="pt-6 font-body-md text-sm text-grey-muted">До 6 осіб у залі одночасно. Кожна наступна особа — 100 грн/год.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Booking Form -->
+<section class="px-margin-mobile mb-20 reveal-on-scroll" id="m-booking">
+<div class="bg-crisp-white border border-stark-black p-8">
+<h2 class="font-display-xl text-[40px] leading-none uppercase font-bold mb-8">ЗАБРОНЮВАТИ ПРОСТІР</h2>
+<form class="flex flex-col gap-8">
+<div class="relative">
+<label class="font-label-caps text-label-caps text-[10px] absolute -top-5 left-0">ПОВНЕ ІМ'Я</label>
+<input class="w-full border-b border-stark-black rounded-none focus:ring-0 focus:border-primary px-0 bg-transparent outline-none py-4" type="text"/>
+</div>
+<div class="relative">
+<label class="font-label-caps text-label-caps text-[10px] absolute -top-5 left-0">НОМЕР ТЕЛЕФОНУ</label>
+<input class="w-full border-b border-stark-black rounded-none focus:ring-0 focus:border-primary px-0 bg-transparent outline-none py-4" type="tel"/>
+</div>
+<div class="relative">
+<label class="font-label-caps text-label-caps text-[10px] absolute -top-5 left-0">ДАТА ТА ЧАС</label>
+<input class="w-full border-b border-stark-black rounded-none focus:ring-0 focus:border-primary px-0 bg-transparent outline-none py-4" type="datetime-local"/>
+</div>
+<div class="relative">
+<label class="font-label-caps text-label-caps text-[10px] absolute -top-5 left-0">ОБЕРІТЬ ЗАЛ</label>
+<select class="w-full border-b border-stark-black rounded-none focus:ring-0 focus:border-primary px-0 bg-transparent outline-none appearance-none py-4">
+<option>ЗАЛ 01 - VINTAGE</option>
+<option>ЗАЛ 02 - MINIMAL</option>
+<option>ЗАЛ 03 - CYCLORAMA</option>
+</select>
+</div>
+<button class="bg-stark-black text-crisp-white py-5 font-label-caps text-label-caps tracking-widest uppercase hover:bg-grey-muted transition-colors" type="submit">ВІДПРАВИТИ ЗАПИТ</button>
+</form>
+</div>
+</section>
+<!-- Contacts -->
+<section class="px-margin-mobile mb-20 border-t border-stark-black pt-20 reveal-on-scroll" id="m-contacts">
+<div>
+<h2 class="font-display-xl text-[56px] leading-tight uppercase mb-8">КОНТАКТИ</h2>
+<div class="flex flex-col gap-2 mb-12">
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">Location / Studio 19</p>
+<p class="font-headline-md text-headline-md leading-none">KHARKIV, UA</p>
+</div>
+<div class="w-full aspect-[16/10] overflow-hidden grayscale mb-12 border border-stark-black">
+<img alt="Studio 19 interior" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujlCz4aLl6EVBBG7U6gIoIakw5u4XdCo0AJ748VkZVNXJm8AnjODLups3rkW7oeHi8xyAJw60Wv4DfmZAwKI-7Lc9EVpoNlG49joanRi2SSsrnQTIL5PfIQZw3H90ux8pOYEOI_n_3lw4s_4m-4a7ciCJRtR-2Smw8lJiENynOgPacx1OHmjH2vBWJjy3uwm_I91iqT73xI7F8Je61uPjYFG8mKbmpiBUqM3dAQHSZ4FdGjACb-V3bi9oej"/>
+</div>
+<div class="grid grid-cols-1 gap-12 mb-16">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant block mb-4">Address</span>
+<address class="not-italic font-body-lg text-body-lg">м. Харків,<br/>вул. Сумська, 1</address>
+</div>
+<div>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant block mb-4">Talk to us</span>
+<p class="font-body-lg text-body-lg mb-1">+380 50 123 45 67</p>
+<p class="font-body-lg text-body-lg">info@studio19.ua</p>
+</div>
+</div>
+<div class="pt-12 border-t border-grey-border">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant block mb-8">Send a Message</span>
+<form class="space-y-8">
+<div>
+<input class="w-full bg-transparent border-0 border-b border-stark-black py-4 px-0 focus:ring-0 focus:border-outline placeholder:text-outline font-label-caps text-label-caps tracking-widest" placeholder="NAME" type="text"/>
+</div>
+<div>
+<input class="w-full bg-transparent border-0 border-b border-stark-black py-4 px-0 focus:ring-0 focus:border-outline placeholder:text-outline font-label-caps text-label-caps tracking-widest" placeholder="EMAIL OR PHONE" type="text"/>
+</div>
+<div>
+<textarea class="w-full bg-transparent border-0 border-b border-stark-black py-4 px-0 focus:ring-0 focus:border-outline placeholder:text-outline font-label-caps text-label-caps tracking-widest" placeholder="MESSAGE" rows="4"></textarea>
+</div>
+<button class="w-full bg-stark-black text-crisp-white py-6 font-label-caps text-label-caps tracking-widest uppercase hover:opacity-90 transition-opacity" type="submit">Submit Inquiry</button>
+</form>
+</div>
+<div class="pt-12 border-t border-grey-border mt-12">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant block mb-6">Connect</span>
+<div class="flex flex-wrap gap-8">
+<a class="font-label-caps text-label-caps uppercase hover:opacity-50 transition-opacity" href="#">Instagram</a>
+<a class="font-label-caps text-label-caps uppercase hover:opacity-50 transition-opacity" href="#">Telegram</a>
+<a class="font-label-caps text-label-caps uppercase hover:opacity-50 transition-opacity" href="#">Reviews</a>
+</div>
+</div>
+</div>
+</section>
+<footer class="border-t border-stark-black px-margin-mobile py-12 flex flex-col gap-8 bg-crisp-white">
+<h2 class="font-headline-lg text-[48px] font-bold tracking-tighter uppercase">STUDIO 19</h2>
+<div class="flex flex-col gap-4">
+<a class="font-label-caps text-label-caps hover:italic" href="#">ІНСТАГРАМ</a>
+<a class="font-label-caps text-label-caps hover:italic" href="#">ТЕЛЕГРАМ</a>
+<a class="font-label-caps text-label-caps hover:italic" href="#">ВІДГУКИ</a>
+</div>
+<div class="mt-8 border-t border-grey-border pt-8 text-[10px] font-label-caps text-grey-muted">© 2024 STUDIO 19. ХАРКІВ, СУМСЬКА 1. ВСІ ПРАВА ЗАХИЩЕНІ.</div>
+</footer>
+</main>
+<script>
+        // Menu Toggle
+        const menuBtn = document.getElementById('menu-toggle');
+        const closeBtn = document.getElementById('menu-close');
+        const menu = document.getElementById('mobile-menu');
+        const menuLinks = menu.querySelectorAll('a');
+
+        const openMenu = () => {
+            menu.style.transform = 'translateX(0)';
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeMenu = () => {
+            menu.style.transform = 'translateX(100%)';
+            document.body.style.overflow = '';
+        };
+
+        menuBtn.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        
+        // Auto-close menu on link click
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Once animated, we can stop observing if desired
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Accordion Logic
+        function toggleAccordion(element) {
+            const content = element.querySelector('.content');
+            const icon = element.querySelector('.material-symbols-outlined');
+            
+            if (content.style.maxHeight === '0px' || !content.style.maxHeight) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.textContent = 'remove';
+                element.classList.add('bg-surface-container');
+            } else {
+                content.style.maxHeight = '0px';
+                icon.textContent = 'add';
+                element.classList.remove('bg-surface-container');
+            }
+        }
+    </script>
+
+    </div>
+    <!-- DESKTOP VERSION -->
+    <div class="hidden md:block">
+
+<!-- TopNavBar -->
+<nav class="bg-crisp-white dark:bg-stark-black flex justify-between items-center w-full px-8 md:px-20 py-6 max-w-full mx-auto fixed top-0 left-0 z-50 border-b border-stark-black dark:border-crisp-white transition-all duration-300">
+<a class="font-headline-md text-headline-md font-bold tracking-tighter text-primary dark:text-crisp-white uppercase" href="#hero">
+        STUDIO 19
+    </a>
+<!-- Desktop Nav -->
+<div class="hidden md:flex gap-12 items-center">
+<a class="nav-link text-primary dark:text-crisp-white font-label-caps text-label-caps transition-colors duration-200" href="#portfolio">Портфоліо</a>
+<a class="nav-link text-grey-muted dark:text-secondary-fixed-dim font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-colors duration-200" href="#equipment">Обладнання</a>
+<a class="nav-link text-grey-muted dark:text-secondary-fixed-dim font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-colors duration-200" href="#rules">Правила</a>
+<a class="nav-link text-grey-muted dark:text-secondary-fixed-dim font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-colors duration-200" href="#contacts">Контакти</a>
+</div>
+<a class="bg-stark-black text-crisp-white dark:bg-crisp-white dark:text-stark-black px-8 py-3 font-label-caps text-label-caps active:scale-95 hover:scale-105 hover:shadow-xl transition-all duration-300" href="#booking">
+        BOOKING
+    </a>
+</nav>
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col fixed left-0 top-0 h-full w-64 z-40 bg-crisp-white dark:bg-stark-black border-r border-stark-black dark:border-crisp-white py-32 px-6">
+<div class="mb-12">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-crisp-white">STUDIO 19</h2>
+<p class="font-label-caps text-label-caps tracking-widest text-grey-muted mt-2 uppercase">Summska 1, Kharkiv</p>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-4 p-4 hover:bg-primary hover:text-on-primary dark:hover:bg-crisp-white dark:hover:text-stark-black text-primary dark:text-crisp-white font-bold font-label-caps text-label-caps transition-all active:scale-95 duration-150" href="#portfolio">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>Портфоліо
+        </a>
+<a class="flex items-center gap-4 p-4 text-primary dark:text-crisp-white hover:bg-surface-container-high dark:hover:bg-secondary-container transition-all font-label-caps text-label-caps" href="#equipment">
+<span class="material-symbols-outlined" data-icon="camera">camera</span>Обладнання
+        </a>
+<a class="flex items-center gap-4 p-4 text-primary dark:text-crisp-white hover:bg-surface-container-high dark:hover:bg-secondary-container transition-all font-label-caps text-label-caps" href="#rules">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>Правила
+        </a>
+<a class="flex items-center gap-4 p-4 text-primary dark:text-crisp-white hover:bg-surface-container-high dark:hover:bg-secondary-container transition-all font-label-caps text-label-caps" href="#contacts">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>Контакти
+        </a>
+<a class="flex items-center gap-4 p-4 text-primary dark:text-crisp-white hover:bg-surface-container-high dark:hover:bg-secondary-container transition-all font-label-caps text-label-caps" href="#booking">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>Бронювання
+        </a>
+</div>
+<div class="mt-auto">
+<a class="block w-full text-center bg-stark-black text-crisp-white py-5 font-label-caps text-label-caps tracking-widest hover:scale-[1.02] hover:shadow-lg transition-all duration-300" href="#booking">
+            Book Studio
+        </a>
+</div>
+</aside>
+<main class="lg:ml-64 pt-24">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-end px-8 md:px-20 pb-20 relative overflow-hidden" id="hero">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-75 transition-all duration-1000 hover:grayscale-0 scale-105 hover:scale-100" data-alt="A spacious and sun-drenched photography studio in Kharkiv featuring high ceilings, white industrial beams, and a large leopard print rug. The walls are adorned with massive, colorful expressionist paintings reminiscent of Basquiat's style. A luxurious brown leather chesterfield sofa sits near large steel-frame windows, creating a high-fashion editorial atmosphere with sharp shadows and bright highlights." src="https://lh3.googleusercontent.com/aida/ADBb0ujlCz4aLl6EVBBG7U6gIoIakw5u4XdCo0AJ748VkZVNXJm8AnjODLups3rkW7oeHi8xyAJw60Wv4DfmZAwKI-7Lc9EVpoNlG49joanRi2SSsrnQTIL5PfIQZw3H90ux8pOYEOI_n_3lw4s_4m-4a7ciCJRtR-2Smw8lJiENynOgPacx1OHmjH2vBWJjy3uwm_I91iqT73xI7F8Je61uPjYFG8mKbmpiBUqM3dAQHSZ4FdGjACb-V3bi9oej"/>
+</div>
+<div class="relative z-10 max-w-6xl">
+<h1 class="font-display-xl text-[80px] md:text-display-xl leading-[0.9] text-crisp-white mb-8 tracking-tighter animate-fade-up">
+                ЦЕНТР КРЕАТИВУ <br/> В СЕРЦІ ХАРКОВА.
+            </h1>
+<div class="flex flex-col md:flex-row gap-12 items-start md:items-end animate-fade-up delay-1">
+<p class="font-body-lg text-body-lg text-crisp-white max-w-md">
+                    Ми створюємо простір, де мінімалізм зустрічає експресію. Місце для ваших найкращих кадрів, ідей та проектів.
+                </p>
+<div class="border-t border-crisp-white/30 pt-4 w-full md:w-auto animate-fade-up delay-2">
+<span class="font-label-caps text-label-caps text-crisp-white block mb-2 uppercase">Локація</span>
+<span class="font-headline-md text-headline-md text-crisp-white">СУМСЬКА 1, ХАРКІВ</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Marquee -->
+<div class="bg-stark-black text-crisp-white py-4 overflow-hidden border-y border-stark-black">
+<div class="scrolling-text flex gap-8">
+<span class="font-label-caps text-label-caps tracking-widest uppercase py-2">Creative freedom • Professional lighting • Art space • Studio 19 Kharkiv • Creative freedom • Professional lighting • Art space • Studio 19 Kharkiv •</span>
+<span class="font-label-caps text-label-caps tracking-widest uppercase py-2">Creative freedom • Professional lighting • Art space • Studio 19 Kharkiv • Creative freedom • Professional lighting • Art space • Studio 19 Kharkiv •</span>
+</div>
+</div>
+<!-- Portfolio Bento Grid -->
+<section class="px-8 md:px-20 py-section-gap bg-background reveal-item" id="portfolio">
+<div class="flex justify-between items-end mb-16 border-b border-stark-black pb-8">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps text-grey-muted uppercase block mb-4">Наші роботи</span>
+<h2 class="font-headline-lg text-headline-lg leading-tight">ПОРТФОЛІО СТУДІЇ</h2>
+</div>
+<div class="hidden md:block">
+<button class="flex items-center gap-2 font-label-caps text-label-caps border border-stark-black px-6 py-3 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95">
+                    ДИВИТИСЬ ВСЕ <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Left Item -->
+<div class="md:col-span-8 h-[600px] bg-surface-container relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500 shadow-sm hover:shadow-2xl reveal-item">
+<img alt="Modern interior with expressionist art" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsyeEt9tom2bG5TfhrMeozAcg2oW3rb_IbijPbbBqesJR5HYxdM0jFEyx1uR5MLweGsMotV_mUYbrdOsuUz1ZCXPtiy6IrhuHuS5gd5cNy6fmAqP0XldgknplMIq4HnZi7syK07nu_xlXDaMi59xsWACLSNrrrapaI6-XgfEAUMCpV0ycWrPFMSGc20cZPTw91gZs5ESk4LatvU5BtWcITOE8QP-gN1YZBSusWx5EdN6LxklM70V-E9-5syF0KSnaG5cv0Ir6Q4kFZ"/>
+<div class="absolute bottom-0 left-0 p-8 text-crisp-white bg-gradient-to-t from-black/80 to-transparent w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<p class="font-label-caps text-label-caps opacity-80">EDITORIAL / DESIGN</p>
+<h3 class="font-headline-md text-headline-md mt-2">ARTISTIC SPACE CONCEPT</h3>
+</div>
+</div>
+<!-- Right Column -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="h-[292px] bg-surface-container relative group overflow-hidden hover:scale-[1.02] transition-transform duration-500 shadow-sm reveal-item">
+<img alt="Minimalist sofa setup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAC3_WWFOLtmK2hnFwDcWcSly-RjKakeJar2vtpYkFKGgpzvlEfrNmaSg5cO4Xdpgp1XYo556WY3PZaTn3_mwD9ilcU0QxKMoICQ7HL21qJoqYWjQkC1nfWj6MU4zy6rdMvwaFQ1y3-HOt_2yPPn4IXt_k_Gh8VmYX7z8FOdD0BdhuyoHWbhRPC3zTMwClCsPueAxq6FEr43hGt6I4KF4k3FsEYzXRAd-rsqLdOyD3CalMPswjTEdxV23oJ6P3P_24RdgXSfPoDNTH"/>
+</div>
+<div class="h-[292px] bg-surface-container relative group overflow-hidden hover:scale-[1.02] transition-transform duration-500 shadow-sm reveal-item">
+<img alt="Portrait in studio" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaYMSEtwbi8jNrubNVxgImVzsiAMnXbTUaE529U8U-V8Srrtj_ymg1Ui00A80K4Soi6v7YzFZq4yElpSV5bI4PsTCX8VOXVYgAwMCod-zM5sh1frBriC8IIXPqfjVUYOBpdByyiJpIc38HKqK8jWEXRSnwqsDF47a_xAY1a9oVwCsjszUEJFtFIQIw9iSaYmlQOMoZBL-O9NuYPYRMZgU1TirvifOfBbTLAkQglC5bQgCv1dcBAhPHrVo-jZw2SF0Xnv0TJkN17ui6"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-crisp-white text-[48px]">visibility</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Equipment Section -->
+<section class="px-8 md:px-20 py-section-gap bg-surface-container-low border-y border-stark-black reveal-item" id="equipment">
+<div class="max-w-6xl mx-auto">
+<div class="flex flex-col md:flex-row gap-20 items-center">
+<div class="w-full md:w-1/2 reveal-item">
+<div class="border-[1px] border-stark-black p-2 bg-crisp-white shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-auto" data-alt="A meticulously organized professional photography studio workspace featuring high-end lighting gear. Softboxes on stands are positioned around a clean white infinity cove. A professional camera on a sturdy tripod stands ready for a shoot." src="https://lh3.googleusercontent.com/aida/ADBb0ugIgJqQK1ylgQNT3UjU9hCEkaia0n4umirvunIEeQbQVmT93eljc0HodI1d_SLe8pVLyJYxYvaG_nYmYwB4IuXkLGdO1RsnoOT5-AYIu8tNcU0rR8pPo9PT3S0J1iSgFwN6spfYxy4-I0kVd0DsaC2MDeHOjnfSR5ORM1zmyuWi5EXMIglhU8sDNnK7hqNTvFbZ1-Z2NJmTuznKl-IA7Vblkmc6dTt3_TdGIDOoHkSJFC3Z9Op-m3prBqA"/>
+</div>
+</div>
+<div class="w-full md:w-1/2 reveal-item delay-1">
+<span class="font-label-caps text-label-caps text-grey-muted uppercase block mb-4">Технічне оснащення</span>
+<h2 class="font-headline-lg text-headline-lg leading-tight mb-8">ПРОФЕСІЙНЕ СВІТЛО PROFOTO</h2>
+<ul class="flex flex-col gap-6">
+<li class="flex items-start gap-4 border-b border-stark-black/10 pb-4 group">
+<span class="font-headline-md text-headline-md text-primary opacity-20 group-hover:opacity-100 transition-opacity duration-300">01</span>
+<div>
+<h4 class="font-label-caps text-label-caps font-bold group-hover:translate-x-2 transition-transform duration-300">PROFOTO D2 1000 AIRTTL</h4>
+<p class="font-body-md text-grey-muted mt-1">Найшвидші в світі моноблоки для ідеальних кадрів у русі.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 border-b border-stark-black/10 pb-4 group">
+<span class="font-headline-md text-headline-md text-primary opacity-20 group-hover:opacity-100 transition-opacity duration-300">02</span>
+<div>
+<h4 class="font-label-caps text-label-caps font-bold group-hover:translate-x-2 transition-transform duration-300">МОДИФІКАТОРИ СВІТЛА</h4>
+<p class="font-body-md text-grey-muted mt-1">Великий вибір софтбоксів, рефлекторів та парасоль для будь-яких завдань.</p>
+</div>
+</li>
+<li class="flex items-start gap-4 group">
+<span class="font-headline-md text-headline-md text-primary opacity-20 group-hover:opacity-100 transition-opacity duration-300">03</span>
+<div>
+<h4 class="font-label-caps text-label-caps font-bold group-hover:translate-x-2 transition-transform duration-300">СИНХРОНІЗАТОРИ</h4>
+<p class="font-body-md text-grey-muted mt-1">Air Remote для бездротового керування всією системою.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Rules & Booking Section -->
+<section class="px-8 md:px-20 py-section-gap grid grid-cols-1 lg:grid-cols-12 gap-20 reveal-item" id="rules">
+<div class="lg:col-span-5 reveal-item">
+<h2 class="font-headline-lg text-headline-lg mb-12">ПРАВИЛА <br/> СТУДІЇ</h2>
+<div class="space-y-4">
+<div class="accordion-item border-b border-stark-black">
+<div class="flex justify-between items-center py-6 cursor-pointer group accordion-trigger">
+<span class="font-label-caps text-label-caps font-bold">БРОНЮВАННЯ ТА ОПЛАТА</span>
+<span class="material-symbols-outlined icon-plus">add</span>
+</div>
+<div class="accordion-content">
+<p class="font-body-md text-grey-muted pb-6">
+                            Бронювання здійснюється за передоплатою 50%. Мінімальний час оренди — 1 година. 
+                        </p>
+</div>
+</div>
+<div class="accordion-item border-b border-stark-black">
+<div class="flex justify-between items-center py-6 cursor-pointer group accordion-trigger">
+<span class="font-label-caps text-label-caps font-bold">ПІДГОТОВКА ТА ГРИМЕРКА</span>
+<span class="material-symbols-outlined icon-plus">add</span>
+</div>
+<div class="accordion-content">
+<p class="font-body-md text-grey-muted pb-6">
+                            Гримерка надається безкоштовно за 30 хвилин до початку оренди.
+                        </p>
+</div>
+</div>
+<div class="accordion-item border-b border-stark-black">
+<div class="flex justify-between items-center py-6 cursor-pointer group accordion-trigger">
+<span class="font-label-caps text-label-caps font-bold">ОБЛАДНАННЯ ТА МАЙНО</span>
+<span class="material-symbols-outlined icon-plus">add</span>
+</div>
+<div class="accordion-content">
+<p class="font-body-md text-grey-muted pb-6">
+                            Матеріальна відповідальність за пошкодження обладнання несе орендар.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 bg-stark-black text-crisp-white p-12 md:p-20 relative hover:shadow-2xl transition-shadow duration-500 reveal-item delay-1" id="booking">
+<div class="absolute top-0 right-0 p-8 border-b border-l border-crisp-white/20">
+<span class="font-label-caps text-label-caps uppercase opacity-60">Check Availability</span>
+</div>
+<h3 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg mb-8">ГОТОВІ ДО <br/> ЗЙОМКИ?</h3>
+<form class="space-y-8 max-w-lg">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-crisp-white/40 py-4 font-label-caps text-label-caps focus:ring-0 focus:border-crisp-white placeholder:text-grey-muted transition-colors" placeholder="ВАШЕ ІМ'Я" type="text"/>
+</div>
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-crisp-white/40 py-4 font-label-caps text-label-caps focus:ring-0 focus:border-crisp-white placeholder:text-grey-muted transition-colors" placeholder="E-MAIL АБО ТЕЛЕФОН" type="email"/>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="relative">
+<input class="w-full bg-transparent border-0 border-b border-crisp-white/40 py-4 font-label-caps text-label-caps focus:ring-0 focus:border-crisp-white text-crisp-white transition-colors" type="date"/>
+</div>
+<div class="relative">
+<select class="w-full bg-transparent border-0 border-b border-crisp-white/40 py-4 font-label-caps text-label-caps focus:ring-0 focus:border-crisp-white text-grey-muted transition-colors">
+<option>ТРИВАЛІСТЬ</option>
+<option>1 ГОДИНА</option>
+<option>2 ГОДИНИ</option>
+<option>3+ ГОДИНИ</option>
+</select>
+</div>
+</div>
+<button class="w-full bg-crisp-white text-stark-black py-6 font-label-caps text-label-caps tracking-widest hover:scale-[1.01] hover:bg-surface-container transition-all active:scale-95 duration-300">
+                    ЗАБРОНЮВАТИ СТУДІЮ
+                </button>
+</form>
+</div>
+</section>
+<!-- Contacts Section -->
+<section class="reveal-item bg-background" id="contacts">
+<!-- Contacts Header -->
+<section class="grid grid-cols-1 md:grid-cols-12 w-full pt-20 pb-10 px-8 md:px-20 border-t border-stark-black reveal-item">
+<div class="md:col-span-8">
+<h1 class="font-display-xl text-display-xl uppercase mb-12">КОНТАКТИ</h1>
+</div>
+<div class="md:col-span-4 flex flex-col justify-end pb-4 border-b border-stark-black md:border-b-0">
+<p class="font-label-caps text-label-caps uppercase tracking-widest text-grey-muted mb-2">ЛОКАЦІЯ / STUDIO 19</p>
+<p class="font-headline-md text-headline-md leading-none uppercase">KHARKIV, UA</p>
+</div>
+</section>
+<!-- Contacts Content Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 w-full px-8 md:px-20 gap-y-16 md:gap-y-0 pb-section-gap">
+<div class="md:col-span-5 md:pr-12 md:border-r border-stark-black reveal-item">
+<div class="space-y-16">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-grey-muted block mb-4">АДРЕСА</span>
+<address class="not-italic font-body-lg text-body-lg">
+                                м. Харків,<br/>вул. Сумська, 1
+                            </address>
+</div>
+<div>
+<span class="font-label-caps text-label-caps uppercase text-grey-muted block mb-4">ЗВ'ЯЖІТЬСЯ З НАМИ</span>
+<p class="font-body-lg text-body-lg mb-1">+380 50 123 45 67</p>
+<p class="font-body-lg text-body-lg">info@studio19.ua</p>
+</div>
+</div>
+<div class="pt-12 border-t border-stark-black/10">
+<span class="font-label-caps text-label-caps uppercase text-grey-muted block mb-8">НАПИШІТЬ НАМ</span>
+<form class="space-y-8">
+<div>
+<input class="w-full bg-transparent border-0 border-b border-stark-black py-4 px-0 focus:ring-0 focus:border-primary placeholder:text-grey-muted font-label-caps text-label-caps tracking-widest" placeholder="ІМ'Я" type="text"/>
+</div>
+<div>
+<input class="w-full bg-transparent border-0 border-b border-stark-black py-4 px-0 focus:ring-0 focus:border-primary placeholder:text-grey-muted font-label-caps text-label-caps tracking-widest" placeholder="EMAIL АБО ТЕЛЕФОН" type="text"/>
+</div>
+<div>
+<textarea class="w-full bg-transparent border-0 border-b border-stark-black py-4 px-0 focus:ring-0 focus:border-primary placeholder:text-grey-muted font-label-caps text-label-caps tracking-widest" placeholder="ПОВІДОМЛЕННЯ" rows="4"></textarea>
+</div>
+<button class="w-full bg-stark-black text-crisp-white py-6 font-label-caps text-label-caps tracking-widest uppercase hover:bg-opacity-90 transition-opacity active:scale-95" type="submit">ВІДПРАВИТИ ЗАПИТ</button>
+</form>
+</div>
+<div class="pt-12 border-t border-stark-black/10 pb-16">
+<span class="font-label-caps text-label-caps uppercase text-grey-muted block mb-6">ПРИЄДНУЙТЕСЬ</span>
+<div class="flex flex-wrap gap-8">
+<a class="nav-link font-label-caps text-label-caps uppercase text-primary" href="#">Instagram</a>
+<a class="nav-link font-label-caps text-label-caps uppercase text-primary" href="#">Telegram</a>
+<a class="nav-link font-label-caps text-label-caps uppercase text-primary" href="#">Reviews</a>
+</div>
+</div>
+</div>
+</div>
+<div class="md:col-span-7 md:pl-12 flex flex-col gap-12 reveal-item delay-1">
+<div class="w-full aspect-[16/10] overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 bg-surface-container">
+<img alt="Studio 19 interior" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujlCz4aLl6EVBBG7U6gIoIakw5u4XdCo0AJ748VkZVNXJm8AnjODLups3rkW7oeHi8xyAJw60Wv4DfmZAwKI-7Lc9EVpoNlG49joanRi2SSsrnQTIL5PfIQZw3H90ux8pOYEOI_n_3lw4s_4m-4a7ciCJRtR-2Smw8lJiENynOgPacx1OHmjH2vBWJjy3uwm_I91iqT73xI7F8Je61uPjYFG8mKbmpiBUqM3dAQHSZ4FdGjACb-V3bi9oej"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+<div class="relative w-full aspect-square bg-surface-container-high border border-stark-black flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<div class="absolute w-[1px] h-full bg-stark-black left-1/4"></div>
+<div class="absolute w-[1px] h-full bg-stark-black left-2/3"></div>
+<div class="absolute h-[1px] w-full bg-stark-black top-1/3"></div>
+<div class="absolute h-[1px] w-full bg-stark-black top-3/4"></div>
+</div>
+<div class="z-10 text-center">
+<div class="w-4 h-4 bg-stark-black rounded-full mx-auto mb-4 animate-pulse"></div>
+<p class="font-label-caps text-label-caps tracking-widest uppercase">SUMSKA ST. 1</p>
+</div>
+<div class="absolute bottom-4 right-4">
+<span class="material-symbols-outlined text-4xl" data-icon="location_on">location_on</span>
+</div>
+</div>
+<div class="flex flex-col h-full justify-between">
+<div class="space-y-6">
+<p class="font-body-md text-body-md text-grey-muted">
+                                Наша студія розташована в самому серці Харкова, де історична архітектура зустрічається з сучасним мистецтвом.
+                            </p>
+<p class="font-body-md text-body-md text-grey-muted">
+                                Завітайте на каву та обговорення ваших творчих проектів у нашому надихаючому просторі.
+                            </p>
+</div>
+<div class="mt-8 border-t border-stark-black pt-6">
+<div class="flex justify-between items-center group cursor-pointer">
+<span class="font-label-caps text-label-caps uppercase">ЯК НАС ЗНАЙТИ</span>
+<span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full grid grid-cols-12 gap-6 mt-12 reveal-item">
+<div class="col-span-5 aspect-[4/5] bg-surface-container overflow-hidden grayscale">
+<img alt="Studio detail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ugaU6EAZitPYy_ZS-0_faZh6vsVhACccEg0uIvN3MPZL8enjbi3oUs13yXMJQFoQzpWNWgZvw1UoZmpQO1xI3M2Kj38t_EGQvWBy8FHLUsJzOD_fakNFt02vXEL2ysSDLt1LBo4HUfsc7D3HExVJBgfvCjC3SAYMFqrTiqYH1qggRYPJRcLL-innp1hgnK1ry9Xk3_bQyIcIBhKizG7XMiPj0AdJQISmbYwfuaYEQzaPZA-tWPGCCc2Q2PO"/>
+</div>
+<div class="col-span-7 flex items-center p-8 border border-stark-black">
+<p class="font-body-lg text-body-lg italic leading-relaxed">
+                            "Ми віримо, що простір диктує настрій кадру. Кожен куточок нашої студії спроектований так, щоб стати частиною вашої історії."
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Large Branding Type -->
+<section class="w-full px-8 md:px-20 py-section-gap overflow-hidden border-t border-stark-black reveal-item">
+<h2 class="font-display-xl text-[18vw] leading-[0.8] uppercase whitespace-nowrap opacity-5 select-none -ml-10">STUDIO 19 KHARKIV</h2>
+</section>
+</section>
+<!-- Footer -->
+<footer class="bg-crisp-white dark:bg-stark-black flex flex-col md:flex-row justify-between items-start md:items-center w-full px-8 md:px-20 py-12 gap-8 border-t border-stark-black dark:border-crisp-white">
+<div class="flex flex-col gap-4">
+<div class="font-headline-lg text-headline-lg font-bold text-primary dark:text-crisp-white tracking-tighter uppercase">
+                STUDIO 19
+            </div>
+<p class="font-label-caps text-label-caps text-grey-muted max-w-xs">
+                © 2024 STUDIO 19. SUMMSKA 1, KHARKIV. УСІ ПРАВА ЗАХИЩЕНО.
+            </p>
+</div>
+<div class="flex flex-wrap gap-x-12 gap-y-4">
+<a class="nav-link text-grey-muted dark:text-secondary-fixed font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-all" href="#">Instagram</a>
+<a class="nav-link text-grey-muted dark:text-secondary-fixed font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-all" href="#">Reviews</a>
+<a class="nav-link text-grey-muted dark:text-secondary-fixed font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-all" href="#contacts">Контакти</a>
+<a class="nav-link text-grey-muted dark:text-secondary-fixed font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-all" href="#">Privacy</a>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label-caps text-label-caps mb-2">+380 50 123 45 67</span>
+<span class="font-label-caps text-label-caps uppercase">INFO@STUDIO19.UA</span>
+</div>
+</footer>
+</main>
+<!-- Custom Cursor -->
+<div class="fixed w-4 h-4 bg-stark-black rounded-full pointer-events-none z-[9999] mix-blend-difference transition-transform duration-100 hidden md:block" id="cursor" style="left: 0px; top: 0px;"></div>
+<script>
+    // Custom Cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX - 8 + 'px';
+        cursor.style.top = e.clientY - 8 + 'px';
+    });
+
+    document.querySelectorAll('a, button, .accordion-trigger').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('scale-[4]'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('scale-[4]'));
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('py-4', 'shadow-sm');
+            nav.classList.remove('py-6');
+        } else {
+            nav.classList.add('py-6');
+            nav.classList.remove('py-4', 'shadow-sm');
+        }
+    });
+
+    // Intersection Observer for Reveal Effects
+    const revealCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: stop observing once revealed
+                // observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const revealObserver = new IntersectionObserver(revealCallback, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal-item').forEach(el => {
+        revealObserver.observe(el);
+    });
+
+    // Smooth Scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Accordion Logic
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const item = trigger.closest('.accordion-item');
+            const isActive = item.classList.contains('active');
+            
+            // Close all others
+            document.querySelectorAll('.accordion-item').forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+            
+            // Toggle current
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // Simple micro-interaction for contact form inputs
+    const contactInputs = document.querySelectorAll('#contacts input, #contacts textarea');
+    contactInputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            input.parentElement.style.transition = 'transform 0.3s ease';
+            input.parentElement.style.transform = 'translateX(10px)';
+        });
+        input.addEventListener('blur', () => {
+            input.parentElement.style.transform = 'translateX(0)';
+        });
+    });
+</script>
+
+    </div>
+</body>
+</html>
