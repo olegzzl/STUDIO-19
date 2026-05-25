@@ -834,25 +834,6 @@
 <!-- Custom Cursor -->
 <div class="fixed w-4 h-4 bg-stark-black rounded-full pointer-events-none z-[9999] mix-blend-difference transition-transform duration-100 hidden md:block" id="cursor" style="left: 0px; top: 0px;"></div>
 
-<!-- Lightbox Gallery Modal -->
-<div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] hidden flex items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0">
-    <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-grey-muted transition-colors p-2 z-[10000]">
-        <span class="material-symbols-outlined text-4xl">close</span>
-    </button>
-    <button id="lightbox-prev" class="absolute left-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] hidden md:block">
-        <span class="material-symbols-outlined text-5xl">arrow_back_ios</span>
-    </button>
-    <button id="lightbox-next" class="absolute right-6 text-white hover:text-grey-muted transition-colors p-4 z-[10000]">
-        <span class="material-symbols-outlined text-5xl">arrow_forward_ios</span>
-    </button>
-    <div id="lightbox-img-container" class="max-w-[90%] max-h-[85vh] flex items-center justify-center select-none">
-        <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain transition-all duration-300 transform scale-95 opacity-0" src="" alt="Gallery Image"/>
-    </div>
-    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 font-label-caps text-label-caps text-white/60 text-xs">
-        <span id="lightbox-index">1 / 5</span>
-    </div>
-</div>
-
 <script>
     // Custom Cursor
     const cursor = document.getElementById('cursor');
@@ -945,7 +926,7 @@
     });
 
     // Lightbox Gallery Logic
-    const zoomableImages = Array.from(document.querySelectorAll('section img, main img, header img')).filter(img => {
+    const zoomableImages = Array.from(document.querySelectorAll('#m-portfolio img, #portfolio img')).filter(img => {
         // Only target actual photograph images, excluding tiny icons or loading images if any
         return img.offsetWidth > 60 || img.offsetHeight > 60 || img.complete;
     });
@@ -1040,6 +1021,25 @@
     });
 </script>
 
+    </div>
+
+    <!-- Lightbox Gallery Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] hidden flex items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-grey-muted transition-colors p-2 z-[10000]">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <button id="lightbox-prev" class="absolute left-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] hidden md:block">
+            <span class="material-symbols-outlined text-5xl">arrow_back_ios</span>
+        </button>
+        <button id="lightbox-next" class="absolute right-6 text-white hover:text-grey-muted transition-colors p-4 z-[10000]">
+            <span class="material-symbols-outlined text-5xl">arrow_forward_ios</span>
+        </button>
+        <div id="lightbox-img-container" class="max-w-[90%] max-h-[85vh] flex items-center justify-center select-none">
+            <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain transition-all duration-300 transform scale-95 opacity-0" src="" alt="Gallery Image"/>
+        </div>
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 font-label-caps text-label-caps text-white/60 text-xs">
+            <span id="lightbox-index">1 / 5</span>
+        </div>
     </div>
 </body>
 </html>
