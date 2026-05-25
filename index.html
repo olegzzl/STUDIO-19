@@ -934,10 +934,7 @@
     // Lightbox Gallery Logic
     const zoomableImages = Array.from(document.querySelectorAll('#m-portfolio img, #portfolio img'));
 
-    // Enable cursor zoom-in style on photos
-    zoomableImages.forEach(img => {
-        img.classList.add('cursor-zoom-in');
-    });
+    // Photos are no longer clickable individually, opened via buttons only.
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -998,23 +995,21 @@
 
     const mobileViewAllBtn = document.getElementById('mobile-view-all-btn');
     if (mobileViewAllBtn) {
-        mobileViewAllBtn.addEventListener('click', () => {
+        mobileViewAllBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             if (zoomableImages.length > 0) openLightbox(zoomableImages[0].getAttribute('src'));
         });
     }
 
     const desktopViewAllBtn = document.getElementById('desktop-view-all-btn');
     if (desktopViewAllBtn) {
-        desktopViewAllBtn.addEventListener('click', () => {
+        desktopViewAllBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             if (zoomableImages.length > 0) openLightbox(zoomableImages[0].getAttribute('src'));
         });
     }
-
-    zoomableImages.forEach(img => {
-        img.addEventListener('click', () => {
-            openLightbox(img.getAttribute('src'));
-        });
-    });
 
     lightboxClose.addEventListener('click', closeLightbox);
     lightboxNext.addEventListener('click', (e) => {
