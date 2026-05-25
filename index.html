@@ -191,10 +191,10 @@
 
 <!-- Mobile Navigation Shell -->
 <header class="fixed top-0 left-0 w-full z-50 bg-crisp-white border-b border-stark-black px-margin-mobile py-4 flex justify-between items-center">
-<div class="flex items-center gap-2">
-<span class="font-label-caps text-[10px] tracking-widest uppercase">PHOTOGRAPHER</span>
-<span class="font-headline-md text-headline-md font-bold tracking-tighter uppercase leading-none">STUDIO 19</span>
-</div>
+<a href="#" class="flex items-center gap-2 cursor-pointer">
+<span class="font-label-caps text-[10px] tracking-widest uppercase text-stark-black">PHOTOGRAPHER</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter uppercase leading-none text-stark-black">STUDIO 19</span>
+</a>
 <button class="p-2" id="menu-toggle">
 <span class="material-symbols-outlined text-stark-black">menu</span>
 </button>
@@ -207,6 +207,7 @@
 </button>
 </div>
 <nav class="flex flex-col gap-8 mt-12">
+<a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#">ГОЛОВНА</a>
 <a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-portfolio">ПОРТФОЛІО</a>
 <a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-equipment">ОБЛАДНАННЯ</a>
 <a class="font-display-xl text-[48px] leading-tight font-bold tracking-tighter uppercase hover:italic transition-all" href="#m-rules">ПРАВИЛА</a>
@@ -271,6 +272,11 @@
 </div>
 <div class="col-span-2 aspect-[3/4] bg-surface-container mt-2 reveal-on-scroll stagger-1">
 <img alt="Studio Model" class="w-full h-full object-cover" src="images/model.jpg"/>
+</div>
+<div class="col-span-2 mt-6 flex justify-center reveal-on-scroll stagger-2">
+<button class="w-full font-label-caps text-label-caps border border-stark-black py-4 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs">
+                    Дивитись усі
+</button>
 </div>
 </div>
 </div>
@@ -926,10 +932,7 @@
     });
 
     // Lightbox Gallery Logic
-    const zoomableImages = Array.from(document.querySelectorAll('#m-portfolio img, #portfolio img')).filter(img => {
-        // Only target actual photograph images, excluding tiny icons or loading images if any
-        return img.offsetWidth > 60 || img.offsetHeight > 60 || img.complete;
-    });
+    const zoomableImages = Array.from(document.querySelectorAll('#m-portfolio img, #portfolio img'));
 
     // Enable cursor zoom-in style on photos
     zoomableImages.forEach(img => {
@@ -1019,6 +1022,29 @@
         if (e.key === 'ArrowRight') showImage(currentIndex + 1);
         if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
     });
+
+    // Touch Swipe Navigation for Mobile Devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+            showImage(currentIndex + 1); // Swipe left -> Next
+        }
+        if (touchEndX > touchStartX + swipeThreshold) {
+            showImage(currentIndex - 1); // Swipe right -> Prev
+        }
+    }
 </script>
 
     </div>
@@ -1028,11 +1054,11 @@
         <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-grey-muted transition-colors p-2 z-[10000]">
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
-        <button id="lightbox-prev" class="absolute left-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] hidden md:block">
-            <span class="material-symbols-outlined text-5xl">arrow_back_ios</span>
+        <button id="lightbox-prev" class="absolute left-4 md:left-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] focus:outline-none">
+            <span class="material-symbols-outlined text-3xl md:text-5xl">arrow_back_ios</span>
         </button>
-        <button id="lightbox-next" class="absolute right-6 text-white hover:text-grey-muted transition-colors p-4 z-[10000]">
-            <span class="material-symbols-outlined text-5xl">arrow_forward_ios</span>
+        <button id="lightbox-next" class="absolute right-4 md:right-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] focus:outline-none">
+            <span class="material-symbols-outlined text-3xl md:text-5xl">arrow_forward_ios</span>
         </button>
         <div id="lightbox-img-container" class="max-w-[90%] max-h-[85vh] flex items-center justify-center select-none">
             <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain transition-all duration-300 transform scale-95 opacity-0" src="" alt="Gallery Image"/>
