@@ -261,17 +261,17 @@
 </div>
 <div class="grid grid-cols-2 gap-2">
 <div class="aspect-square bg-surface-container reveal-on-scroll stagger-1">
-<img alt="Studio Detail" class="w-full h-full object-cover" src="images/sofa.jpg"/>
+<img alt="Studio Detail" class="w-full h-full object-cover cursor-pointer zoom-photo" src="images/sofa.jpg"/>
 </div>
 <div class="flex flex-col justify-end p-4 border border-stark-black reveal-on-scroll stagger-2">
 <span class="font-label-caps text-[10px] uppercase">PHOTOGRAPHY</span>
 <p class="font-body-md text-sm italic mt-1">STUDIO 19</p>
 </div>
 <div class="col-span-2 aspect-[4/5] bg-surface-container reveal-on-scroll stagger-1">
-<img alt="Studio Main" class="w-full h-full object-cover" src="images/interior.jpg"/>
+<img alt="Studio Main" class="w-full h-full object-cover cursor-pointer zoom-photo" src="images/interior.jpg"/>
 </div>
 <div class="col-span-2 aspect-[3/4] bg-surface-container mt-2 reveal-on-scroll stagger-1">
-<img alt="Studio Model" class="w-full h-full object-cover" src="images/model.jpg"/>
+<img alt="Studio Model" class="w-full h-full object-cover cursor-pointer zoom-photo" src="images/model.jpg"/>
 </div>
 <div class="col-span-2 mt-6 flex justify-center reveal-on-scroll stagger-2">
 <button id="mobile-view-all-btn" class="w-full font-label-caps text-label-caps border border-stark-black py-4 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs">
@@ -576,23 +576,16 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
 <!-- Large Left Item -->
-<div class="md:col-span-8 h-[600px] bg-surface-container relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500 shadow-sm hover:shadow-2xl reveal-item">
-<img alt="Modern interior with expressionist art" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="images/interior.jpg"/>
-<div class="absolute bottom-0 left-0 p-8 text-crisp-white bg-gradient-to-t from-black/80 to-transparent w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 pointer-events-none">
-<p class="font-label-caps text-label-caps opacity-80">EDITORIAL / DESIGN</p>
-<h3 class="font-headline-md text-headline-md mt-2">ARTISTIC SPACE CONCEPT</h3>
-</div>
+<div class="md:col-span-8 h-[600px] bg-surface-container relative overflow-hidden shadow-sm reveal-item cursor-pointer zoom-photo">
+<img alt="Modern interior with expressionist art" class="w-full h-full object-cover" src="images/interior.jpg"/>
 </div>
 <!-- Right Column -->
 <div class="md:col-span-4 flex flex-col gap-gutter">
-<div class="h-[292px] bg-surface-container relative group overflow-hidden hover:scale-[1.02] transition-transform duration-500 shadow-sm reveal-item">
-<img alt="Minimalist sofa setup" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" src="images/sofa.jpg"/>
+<div class="h-[292px] bg-surface-container relative overflow-hidden shadow-sm reveal-item cursor-pointer zoom-photo">
+<img alt="Minimalist sofa setup" class="w-full h-full object-cover" src="images/sofa.jpg"/>
 </div>
-<div class="h-[292px] bg-surface-container relative group overflow-hidden hover:scale-[1.02] transition-transform duration-500 shadow-sm reveal-item">
-<img alt="Portrait in studio" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" src="images/model.jpg"/>
-<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
-<span class="material-symbols-outlined text-crisp-white text-[48px]">visibility</span>
-</div>
+<div class="h-[292px] bg-surface-container relative overflow-hidden shadow-sm reveal-item cursor-pointer zoom-photo">
+<img alt="Portrait in studio" class="w-full h-full object-cover" src="images/model.jpg"/>
 </div>
 </div>
 </div>
@@ -932,9 +925,23 @@
     });
 
     // Lightbox Gallery Logic
-    const zoomableImages = Array.from(document.querySelectorAll('#m-portfolio img, #portfolio img'));
+    const zoomableImages = Array.from(document.querySelectorAll('.zoom-photo'));
 
-    // Photos are no longer clickable individually, opened via buttons only.
+    // Photos are now clickable individually again
+    zoomableImages.forEach(img => {
+        img.addEventListener('click', (e) => {
+            let src = '';
+            if (img.tagName.toLowerCase() === 'img') {
+                src = img.getAttribute('src');
+            } else {
+                const innerImg = img.querySelector('img');
+                if (innerImg) src = innerImg.getAttribute('src');
+            }
+            if (src) {
+                openLightbox(src);
+            }
+        });
+    });
 
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -943,10 +950,13 @@
     const lightboxPrev = document.getElementById('lightbox-prev');
     const lightboxIndex = document.getElementById('lightbox-index');
 
+    const imageSrcs = [...new Set(zoomableImages.map(el => {
+        if (el.tagName.toLowerCase() === 'img') return el.getAttribute('src');
+        const img = el.querySelector('img');
+        return img ? img.getAttribute('src') : null;
+    }).filter(src => src !== null))];
+
     let currentIndex = 0;
-    
-    // Get unique image srcs to cycle through in the gallery
-    const imageSrcs = [...new Set(zoomableImages.map(img => img.getAttribute('src')))];
 
     function showImage(index) {
         if (index < 0) index = imageSrcs.length - 1;
@@ -996,7 +1006,7 @@
         mobileViewAllBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            if (zoomableImages.length > 0) openLightbox(zoomableImages[0].getAttribute('src'));
+            if (imageSrcs.length > 0) openLightbox(imageSrcs[0]);
         });
     }
 
@@ -1005,7 +1015,7 @@
         desktopViewAllBtn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
-            if (zoomableImages.length > 0) openLightbox(zoomableImages[0].getAttribute('src'));
+            if (imageSrcs.length > 0) openLightbox(imageSrcs[0]);
         });
     }
 
