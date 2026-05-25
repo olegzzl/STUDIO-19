@@ -537,7 +537,7 @@
 <!-- Hero Section -->
 <section class="min-h-screen flex flex-col justify-end px-8 md:px-20 pb-20 relative overflow-hidden" id="hero">
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover grayscale brightness-75 transition-all duration-1000 hover:grayscale-0 scale-105 hover:scale-100" data-alt="A spacious and sun-drenched photography studio in Kharkiv featuring high ceilings, white industrial beams, and a large leopard print rug. The walls are adorned with massive, colorful expressionist paintings reminiscent of Basquiat's style. A luxurious brown leather chesterfield sofa sits near large steel-frame windows, creating a high-fashion editorial atmosphere with sharp shadows and bright highlights." src="images/hero.jpg"/>
+<img class="w-full h-full object-cover grayscale brightness-75 transition-all duration-1000 hover:grayscale-0" data-alt="A spacious and sun-drenched photography studio in Kharkiv featuring high ceilings, white industrial beams, and a large leopard print rug. The walls are adorned with massive, colorful expressionist paintings reminiscent of Basquiat's style. A luxurious brown leather chesterfield sofa sits near large steel-frame windows, creating a high-fashion editorial atmosphere with sharp shadows and bright highlights." src="images/hero.jpg"/>
 </div>
 <div class="relative z-10 max-w-6xl">
 <h1 class="font-display-xl text-[80px] md:text-display-xl leading-[0.9] text-crisp-white mb-8 tracking-tighter animate-fade-up">
@@ -975,21 +975,19 @@
         const index = imageSrcs.indexOf(src);
         showImage(index >= 0 ? index : 0);
 
-        lightbox.classList.remove('hidden');
-        lightbox.classList.add('flex');
-        void lightbox.offsetWidth; // Force reflow
+        lightbox.style.display = 'flex';
+        lightbox.offsetHeight; // Force reflow
         lightbox.classList.remove('opacity-0');
         lightbox.classList.add('opacity-100');
-        document.body.classList.add('overflow-hidden');
+        document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
         lightbox.classList.remove('opacity-100');
         lightbox.classList.add('opacity-0');
-        document.body.classList.remove('overflow-hidden');
+        document.body.style.overflow = '';
         setTimeout(() => {
-            lightbox.classList.remove('flex');
-            lightbox.classList.add('hidden');
+            lightbox.style.display = 'none';
         }, 300);
     }
 
@@ -1061,7 +1059,7 @@
     </div>
 
     <!-- Lightbox Gallery Modal -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] hidden items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0">
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0" style="display: none;">
         <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-grey-muted transition-colors p-2 z-[10000]">
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
