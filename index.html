@@ -495,7 +495,8 @@
     </a>
 <!-- Desktop Nav -->
 <div class="hidden md:flex gap-12 items-center">
-<a class="nav-link text-primary dark:text-crisp-white font-label-caps text-label-caps transition-colors duration-200" href="#portfolio">Портфоліо</a>
+<a class="nav-link text-primary dark:text-crisp-white font-label-caps text-label-caps transition-colors duration-200" href="#hero">Головна</a>
+<a class="nav-link text-grey-muted dark:text-secondary-fixed-dim font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-colors duration-200" href="#portfolio">Портфоліо</a>
 <a class="nav-link text-grey-muted dark:text-secondary-fixed-dim font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-colors duration-200" href="#equipment">Обладнання</a>
 <a class="nav-link text-grey-muted dark:text-secondary-fixed-dim font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-colors duration-200" href="#rules">Правила</a>
 <a class="nav-link text-grey-muted dark:text-secondary-fixed-dim font-label-caps text-label-caps hover:text-primary dark:hover:text-crisp-white transition-colors duration-200" href="#contacts">Контакти</a>
@@ -511,6 +512,9 @@
 <p class="font-label-caps text-label-caps tracking-widest text-grey-muted mt-2 uppercase">Summska 1, Kharkiv</p>
 </div>
 <div class="flex flex-col gap-1">
+<a class="flex items-center gap-4 p-4 text-primary dark:text-crisp-white hover:bg-surface-container-high dark:hover:bg-secondary-container transition-all font-label-caps text-label-caps" href="#hero">
+<span class="material-symbols-outlined" data-icon="home">home</span>Головна
+        </a>
 <a class="flex items-center gap-4 p-4 hover:bg-primary hover:text-on-primary dark:hover:bg-crisp-white dark:hover:text-stark-black text-primary dark:text-crisp-white font-bold font-label-caps text-label-caps transition-all active:scale-95 duration-150" href="#portfolio">
 <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>Портфоліо
         </a>
@@ -570,7 +574,7 @@
 </div>
 <div class="hidden md:block">
 <button id="desktop-view-all-btn" class="flex items-center gap-2 font-label-caps text-label-caps border border-stark-black px-6 py-3 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95">
-                    ДИВИТИСЬ ВСЕ <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    ДИВИТИСЬ УСІ <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
 </button>
 </div>
 </div>
@@ -833,6 +837,25 @@
 <!-- Custom Cursor -->
 <div class="fixed w-4 h-4 bg-stark-black rounded-full pointer-events-none z-[9999] mix-blend-difference transition-transform duration-100 hidden md:block" id="cursor" style="left: 0px; top: 0px;"></div>
 
+<!-- Lightbox Gallery Modal -->
+<div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0" style="display: none;">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-grey-muted transition-colors p-2 z-[10000]">
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <button id="lightbox-prev" class="absolute left-4 md:left-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] focus:outline-none">
+        <span class="material-symbols-outlined text-3xl md:text-5xl">arrow_back_ios</span>
+    </button>
+    <button id="lightbox-next" class="absolute right-4 md:right-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] focus:outline-none">
+        <span class="material-symbols-outlined text-3xl md:text-5xl">arrow_forward_ios</span>
+    </button>
+    <div id="lightbox-img-container" class="max-w-[90%] max-h-[85vh] flex items-center justify-center select-none">
+        <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain transition-all duration-300 transform scale-95 opacity-0" src="" alt="Gallery Image"/>
+    </div>
+    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 font-label-caps text-label-caps text-white/60 text-xs">
+        <span id="lightbox-index">1 / 5</span>
+    </div>
+</div>
+
 <script>
     // Custom Cursor
     const cursor = document.getElementById('cursor');
@@ -1065,26 +1088,5 @@
         }
     }
 </script>
-
-    </div>
-
-    <!-- Lightbox Gallery Modal -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0" style="display: none;">
-        <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-grey-muted transition-colors p-2 z-[10000]">
-            <span class="material-symbols-outlined text-4xl">close</span>
-        </button>
-        <button id="lightbox-prev" class="absolute left-4 md:left-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] focus:outline-none">
-            <span class="material-symbols-outlined text-3xl md:text-5xl">arrow_back_ios</span>
-        </button>
-        <button id="lightbox-next" class="absolute right-4 md:right-6 text-white/50 hover:text-white transition-colors p-4 z-[10000] focus:outline-none">
-            <span class="material-symbols-outlined text-3xl md:text-5xl">arrow_forward_ios</span>
-        </button>
-        <div id="lightbox-img-container" class="max-w-[90%] max-h-[85vh] flex items-center justify-center select-none">
-            <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain transition-all duration-300 transform scale-95 opacity-0" src="" alt="Gallery Image"/>
-        </div>
-        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 font-label-caps text-label-caps text-white/60 text-xs">
-            <span id="lightbox-index">1 / 5</span>
-        </div>
-    </div>
 </body>
 </html>
