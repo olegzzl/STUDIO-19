@@ -274,7 +274,7 @@
 <img alt="Studio Model" class="w-full h-full object-cover" src="images/model.jpg"/>
 </div>
 <div class="col-span-2 mt-6 flex justify-center reveal-on-scroll stagger-2">
-<button class="w-full font-label-caps text-label-caps border border-stark-black py-4 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs">
+<button id="mobile-view-all-btn" class="w-full font-label-caps text-label-caps border border-stark-black py-4 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95 uppercase tracking-widest text-xs">
                     Дивитись усі
 </button>
 </div>
@@ -569,7 +569,7 @@
 <h2 class="font-headline-lg text-headline-lg leading-tight">ПОРТФОЛІО СТУДІЇ</h2>
 </div>
 <div class="hidden md:block">
-<button class="flex items-center gap-2 font-label-caps text-label-caps border border-stark-black px-6 py-3 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95">
+<button id="desktop-view-all-btn" class="flex items-center gap-2 font-label-caps text-label-caps border border-stark-black px-6 py-3 hover:bg-stark-black hover:text-crisp-white transition-all duration-300 active:scale-95">
                     ДИВИТИСЬ ВСЕ <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
 </button>
 </div>
@@ -578,7 +578,7 @@
 <!-- Large Left Item -->
 <div class="md:col-span-8 h-[600px] bg-surface-container relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500 shadow-sm hover:shadow-2xl reveal-item">
 <img alt="Modern interior with expressionist art" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="images/interior.jpg"/>
-<div class="absolute bottom-0 left-0 p-8 text-crisp-white bg-gradient-to-t from-black/80 to-transparent w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+<div class="absolute bottom-0 left-0 p-8 text-crisp-white bg-gradient-to-t from-black/80 to-transparent w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 pointer-events-none">
 <p class="font-label-caps text-label-caps opacity-80">EDITORIAL / DESIGN</p>
 <h3 class="font-headline-md text-headline-md mt-2">ARTISTIC SPACE CONCEPT</h3>
 </div>
@@ -590,7 +590,7 @@
 </div>
 <div class="h-[292px] bg-surface-container relative group overflow-hidden hover:scale-[1.02] transition-transform duration-500 shadow-sm reveal-item">
 <img alt="Portrait in studio" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-110" src="images/model.jpg"/>
-<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
 <span class="material-symbols-outlined text-crisp-white text-[48px]">visibility</span>
 </div>
 </div>
@@ -979,6 +979,7 @@
         showImage(index >= 0 ? index : 0);
 
         lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
         void lightbox.offsetWidth; // Force reflow
         lightbox.classList.remove('opacity-0');
         lightbox.classList.add('opacity-100');
@@ -990,8 +991,23 @@
         lightbox.classList.add('opacity-0');
         document.body.classList.remove('overflow-hidden');
         setTimeout(() => {
+            lightbox.classList.remove('flex');
             lightbox.classList.add('hidden');
         }, 300);
+    }
+
+    const mobileViewAllBtn = document.getElementById('mobile-view-all-btn');
+    if (mobileViewAllBtn) {
+        mobileViewAllBtn.addEventListener('click', () => {
+            if (zoomableImages.length > 0) openLightbox(zoomableImages[0].getAttribute('src'));
+        });
+    }
+
+    const desktopViewAllBtn = document.getElementById('desktop-view-all-btn');
+    if (desktopViewAllBtn) {
+        desktopViewAllBtn.addEventListener('click', () => {
+            if (zoomableImages.length > 0) openLightbox(zoomableImages[0].getAttribute('src'));
+        });
     }
 
     zoomableImages.forEach(img => {
@@ -1050,7 +1066,7 @@
     </div>
 
     <!-- Lightbox Gallery Modal -->
-    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] hidden flex items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0">
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-[9999] hidden items-center justify-center backdrop-blur-sm transition-all duration-300 opacity-0">
         <button id="lightbox-close" class="absolute top-6 right-6 text-white hover:text-grey-muted transition-colors p-2 z-[10000]">
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
